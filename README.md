@@ -1,2 +1,2 @@
 # js-roll-dice
-complete-javascript-course-master-pig-game
+complete-javascript-course-master-Pig-Game
