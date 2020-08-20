@@ -17,6 +17,7 @@ document.querySelector('.btn-new').addEventListener('click', ()=> {
     setScoreZero();
     removeDice();
     setActivePanelForNewGame();
+    console.log('new game');
  
 });
 
