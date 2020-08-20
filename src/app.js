@@ -1,6 +1,6 @@
 /*Pig Game
 */
-let scores, currentScore, activePlayer, gamePlaying = true;
+let scores, currentScore, activePlayer, gamePlaying = true, lastDice;
 
 init();
 
@@ -17,14 +17,20 @@ document.querySelector('.btn-roll').addEventListener('click', ()=> {
         diceDOM.style.display = 'block';
         diceDOM.src = 'dice-' + dice + '.png';
         // 3. Update the current score IF the rolled number was NOT a 1
-        if(dice !== 1) {
+        if(dice === 6 && lastDice === 6) {
+            // Player loses score
+            scores[activePlayer] = 0; 
+            document.querySelector('#score-' + activePlayer).textContent = 0;
+            nextPlayer();
+        } else if(dice !== 1) {
             // Add score
             currentScore += dice;
             document.querySelector('#current-' + activePlayer).textContent = currentScore;
         } else {
             // Next player
             nextPlayer();       
-        }        
+        }           
+        lastDice = dice;
     }
 });
 
