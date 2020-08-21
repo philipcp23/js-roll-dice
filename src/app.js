@@ -26,6 +26,8 @@ document.querySelector('.btn-roll').addEventListener('click', ()=> {
         } else {
             nextPlayer();
         }
+    }
+});
 
         /*
         if(dice === 6 && lastDice === 6) {
