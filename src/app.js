@@ -41,8 +41,19 @@ document.querySelector('.btn-hold').addEventListener('click', ()=> {
         scores[activePlayer] += currentScore;
         // Update the UI
         document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
+
+        input = document.querySelector('.final-score').value;
+        console.log(input);
+        let finalScore;
+        // Undefined, 0, null or '' are coerced to false
+        // Anything else is coerced to true
+        if(input) {
+            finalScore = input;
+        } else {
+            finalScore = 100;
+        }
         // Check if player won the game
-        if (scores[activePlayer] >= 100) {
+        if (scores[activePlayer] >= finalScore) {
             document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
             document.querySelector('.dice').style.display = 'none';
             document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
